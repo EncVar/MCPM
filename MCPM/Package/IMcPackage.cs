@@ -8,7 +8,8 @@ public interface IMcPackage
 {
     public McPackageType Type { get; }
     public string Namespace { get; }
-    public string Identifier { get; set; }
+    public string Identifier { get; }
+    public string Version { get; }
 
     public Task Install();
     public Task Uninstall();
