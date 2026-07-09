@@ -1,10 +1,8 @@
-﻿using System;
+﻿using MCPM.Package;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MCPM.Registry
-{
-    internal class PackageRegistry
-    {
-    }
-}
+namespace MCPM.Registry;
+
+public class PackageRegistry : Registry<IMcPackage>;
