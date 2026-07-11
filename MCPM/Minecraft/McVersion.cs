@@ -34,6 +34,11 @@ public class McVersion
     }
 }
 
+public class McLatestVersion
+{
+    
+}
+
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum McVersionType
 {

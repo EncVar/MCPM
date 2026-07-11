@@ -4,11 +4,24 @@ using System.Text;
 
 namespace MCPM.Package;
 
-public class MinecraftPackage(string identifier) : IMcPackage
+public class MinecraftPackage(string version) : IMcPackage
 {
     public McPackageType Type => McPackageType.Minecraft;
 
-    public string Namespace => "minecraft";
+    public string Version { get; } = version;
+    
+    public Task Install()
+    {
+        throw new NotImplementedException();
+    }
 
-    public string Identifier { get; set; } = identifier;
+    public Task Uninstall()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task Fix()
+    {
+        throw new NotImplementedException();
+    }
 }
