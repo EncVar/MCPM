@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MCPM.Package;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MCPM.Registry;
 
-public class Registry<T>
+public class Registry
 {
-    private static Registry<T> RegistryInstance { get; set; } = new();
+    private static Registry RegistryInstance { get; set; } = new();
 
-    private Dictionary<string, T> _registry = [];
+    private Dictionary<string, IMcPackage> _registry = [];
 }
