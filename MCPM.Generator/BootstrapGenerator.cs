@@ -7,7 +7,7 @@ using System.Text;
 namespace MCPM.Generator;
 
 [Generator]
-public class BootstrapGenerator : IIncrementalGenerator
+public class RegistryBootstrapGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -30,5 +30,40 @@ public class BootstrapGenerator : IIncrementalGenerator
                         attr.AttributeClass?.Name
                         == "RegisterAttribute");
             });
+
+        context.RegisterSourceOutput(classes.Collect(), (spc, symbols) =>
+        {
+            string output =
+                """
+                /// <auto_generated/>
+                using System;
+                using MCPM.Registry;
+
+                namespace MCPM;
+
+                public static partial class Bootstrap 
+                {
+                    public static void RegistryBootstrap() 
+                    {
+                """;
+
+            foreach (var symbol in symbols) 
+            {
+                output += 
+                   $"""
+
+                            MCPM.Registry.Registry.Register(typeof({symbol!.ToDisplayString()}));
+                    """;
+            }
+
+            output +=
+                """
+
+                    }
+                }
+                """;
+
+            spc.AddSource("RegistryBootstrap.g.cs", output);
+        });
     }
 }
