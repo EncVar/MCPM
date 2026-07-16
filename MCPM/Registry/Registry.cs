@@ -8,18 +8,21 @@ namespace MCPM.Registry;
 
 public sealed class Registry : IDisposable
 {
-    private static Registry RegistryInstance { get; set; } = new();
+    public static Registry Instance { get; set; } = new();
 
     private Dictionary<RegisterAttribute, Type> _registry = [];
 
-    private void RegisterForSingleton(Type package)
+    public void Register(Type package)
     {
         var attribute = package.GetCustomAttribute<RegisterAttribute>();
         _registry.Add(attribute!, package);
     }
 
-    public static void Register(Type package)
-        => RegistryInstance.RegisterForSingleton(package);
+    public Type Query(RegisterAttribute attribute)
+        => _registry[attribute];
+
+    public void Remove(RegisterAttribute attribute)
+        => _registry.Remove(attribute);
 
     public void Dispose()
     {
