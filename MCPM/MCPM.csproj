@@ -7,8 +7,9 @@
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     </PropertyGroup>
 	<ItemGroup>
-	    <ProjectReference Include="..\MCPM.Generator\MCPM.Generator.csproj"
-                    OutputItemType="Analyzer"
-                    ReferenceOutputAssembly="false"/>
+	    <ProjectReference Include="..\MCPM.Generator\MCPM.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Downloader" Version="5.9.4" />
 	</ItemGroup>
 </Project>

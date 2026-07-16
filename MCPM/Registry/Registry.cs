@@ -8,7 +8,7 @@ namespace MCPM.Registry;
 
 public sealed class Registry : IDisposable
 {
-    public static Registry Instance { get; set; } = new();
+    public static Lazy<Registry> Instance { get; set; } = new(() => new Registry());
 
     private Dictionary<RegisterAttribute, Type> _registry = [];
 
