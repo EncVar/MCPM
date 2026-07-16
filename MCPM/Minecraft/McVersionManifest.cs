@@ -4,6 +4,8 @@ namespace MCPM.Minecraft;
 
 public class McVersionManifest
 {
+    public required McLatestVersion Latest { get; set; }
+
     [JsonPropertyName("versions")]
-    public List<McVersion> Versions { get; set; }
+    public required List<McVersion> Versions { get; set; }
 }
