@@ -12,4 +12,10 @@
 	<ItemGroup>
 	  <PackageReference Include="Downloader" Version="5.9.4" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Minecraft\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="Package\GameRoot.cs" />
+	</ItemGroup>
 </Project>

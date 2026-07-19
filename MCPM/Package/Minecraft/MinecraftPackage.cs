@@ -1,9 +1,12 @@
 ﻿using MCPM.Registry;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
+using MCPM.Exceptions;
 
-namespace MCPM.Package;
+namespace MCPM.Package.Minecraft;
 
 [Register(Namespace = "minecraft", IdRequired = false)]
 public class MinecraftPackage(string version) : IMcPackage
@@ -11,20 +14,6 @@ public class MinecraftPackage(string version) : IMcPackage
     public McPackageType Type => McPackageType.Minecraft;
 
     public string Version { get; } = version;
-
     
-    public Task Install()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Uninstall()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Fix()
-    {
-        throw new NotImplementedException();
-    }
+    private readonly HttpClient _httpClient = new();
 }

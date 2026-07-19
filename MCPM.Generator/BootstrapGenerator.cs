@@ -27,13 +27,13 @@ public class RegistryBootstrapGenerator : IIncrementalGenerator
 
                 return symbol.GetAttributes()
                     .Any(attr =>
-                        attr.AttributeClass?.Name
-                        == "RegisterAttribute");
+                        attr.AttributeClass?.ToDisplayString()
+                        == "MCPM.Registry.RegisterAttribute");
             });
 
         context.RegisterSourceOutput(classes.Collect(), (spc, symbols) =>
         {
-            string output =
+            var output =
                 """
                 /// <auto_generated/>
                 using System;

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MCPM.Minecraft;
+namespace MCPM.Package.Minecraft;
 
 public class McVersion
 {
@@ -52,7 +52,6 @@ public class McVersion
     public override int GetHashCode()
     {
         return 
-            base.GetHashCode() ^
             Id.GetHashCode() ^
             Time.GetHashCode() ^
             ReleaseTime.GetHashCode();

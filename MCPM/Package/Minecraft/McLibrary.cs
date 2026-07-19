@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MCPM.Minecraft;
+namespace MCPM.Package.Minecraft;
 
 public class McLibrary
 {
